@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=10" />
+  <script src="C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\BlocklyBrowserFiles\Sources\blockly_compressed.js"></script>
+  <script src="C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\BlocklyBrowserFiles\Sources\blocks_compressed.js"></script>
+  <script src="C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\BlocklyBrowserFiles\customblocks.js"></script>
+  <script src="https://blockly-demo.appspot.com/static/msg/js/en.js"></script>
+</head>
+<body>
+    <div id="host" style="height: 795px; width: 1410px;"></div>
+    <script>
+        var workspace;
+        function init(toolboxXML, workspaceXML) {
+            workspace = Blockly.inject('host',
+            { media: 'C:/Users/rick_/Desktop/WFtest/google-blockly-42172ba/media', toolbox: toolboxXML });
+            var wx = Blockly.Xml.textToDom(workspaceXML)
+            Blockly.Xml.domToWorkspace(wx, workspace);
+        }
+
+		
+		 function showXML() {
+			var xmlDom = Blockly.Xml.workspaceToDom(workspace);
+			var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+			return xmlText;
+		}
+
+    </script>
+</body>
+</html>

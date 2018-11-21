@@ -1,0 +1,148 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block id="H9*?Bf!IbV71XXxt7FNW" type="start" y="63" x="163">
+    <next>
+      <block id="VRTzY6eP@Ku/`){q9R1U" type="videoplay">
+        <value name="macAddress">
+          <block id="Vf]=vR;mw-R~PmbPPFjU" type="text">
+            <field name="TEXT">b8:27:eb:c2:23:53</field>
+          </block>
+        </value>
+        <value name="state">
+          <block id="c8WHXFPiaRYK0R/|*8wb" type="text">
+            <field name="TEXT">synctest.mp4</field>
+          </block>
+        </value>
+        <next>
+          <block id="OAFycR83oNi_ce,yxuyr" type="controls_whileUntil">
+            <field name="MODE">WHILE</field>
+            <value name="BOOL">
+              <block id="ftP/+4wjpBkAXkgUa:`:" type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block id="J%]D=8*0FtPX~9nPc4yK" type="puzzle_state" />
+                </value>
+                <value name="B">
+                  <block id="bBy^WPUs60?o(zYx|:::" type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO">
+              <block id="dmo`$rn)3^]hCJPYW?l+" type="controls_if">
+                <value name="IF0">
+                  <block id="GHSLLszmMiAt=px(!Wg0" type="logic_negate">
+                    <value name="BOOL">
+                      <block id="R);D=SC)~q}yVzI2]12g" type="videocheck">
+                        <value name="macAddress">
+                          <block id="5/Q^2ptpC3,XzyJ2p*pc" type="text">
+                            <field name="TEXT">b8:27:eb:c2:23:53</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block id="~(pq0]Or1=~Tr~-DK@r0" type="doormagnet">
+                    <value name="macAddress">
+                      <block id="`,WI0zPBe?iy.my;`c[+" type="text">
+                        <field name="TEXT">00:aa:bb:cc:da:02</field>
+                      </block>
+                    </value>
+                    <value name="state">
+                      <block id="[BSQ8Tga.:H_}}2!FtNq" type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block id="_3bdP+U^S7b_-.W:H{xQ" type="wait">
+                        <value name="seconds">
+                          <block id="o*,}1P15vYbp|adR2?6i" type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block id="43(CrN=UzU#|5AD3_EQj" type="doormagnet">
+                            <value name="macAddress">
+                              <block id="#ilk@ih-R_hF4B|ugClz" type="text">
+                                <field name="TEXT">00:aa:bb:cc:da:02</field>
+                              </block>
+                            </value>
+                            <value name="state">
+                              <block id="iz/Hfhz_FN;ttuJvOf9;" type="logic_boolean">
+                                <field name="BOOL">FALSE</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block id="ss]Do/c^.mTOV6EdR[4+" type="wait">
+                                <value name="seconds">
+                                  <block id="%eia:{UqI)`k`@*WAfh0" type="math_number">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block id="=$bl`Xu7DIn)c4@{/=2t" type="doormagnet">
+                                    <value name="macAddress">
+                                      <block id="gRZGOFqyM=iWNn[v9:%u" type="text">
+                                        <field name="TEXT">00:aa:bb:cc:da:02</field>
+                                      </block>
+                                    </value>
+                                    <value name="state">
+                                      <block id="Yh|O4cVxKF!$qN~[Z/ZR" type="logic_boolean">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block id="]@enfnILDEyC*_}Csw2%" type="wait">
+                                        <value name="seconds">
+                                          <block id="d),LFvW:K;hip,+x~V}B" type="math_number">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block id="KJ*]Q8}-Yh^JDGc=ydmw" type="doormagnet">
+                                            <value name="macAddress">
+                                              <block id="6,Ph]L,^I|5}dQ/58iZg" type="text">
+                                                <field name="TEXT">00:aa:bb:cc:da:02</field>
+                                              </block>
+                                            </value>
+                                            <value name="state">
+                                              <block id="%.Y+[roxAdwsXux$JFEI" type="logic_boolean">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block id="[)?0cNErY}~/Q].[*:L~" type="puzzle_up" />
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block id="@^:Gx^l%mi$eKHtW[(U)" type="wait">
+                    <value name="seconds">
+                      <block id="sUP}D9M5hCItPJe~Qkh^" type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

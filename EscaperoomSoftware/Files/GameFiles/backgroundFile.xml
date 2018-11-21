@@ -1,0 +1,18 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block id="Cm6I9.f08djhX#%H{w4e" type="controls_if" x="252" y="106">
+    <statement name="DO0">
+      <block id="|+l9;+P9p{ec_2bjI4+^" type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow id="f[v_tNh/-Z!eXxJ~-AKw" type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block id="tSB%,cDh5)[/aDrl)-S4" type="lists_create_with" x="620" y="124">
+    <mutation items="3" />
+  </block>
+  <block id="x6[xIo88u}WK.HDL,Xd1" type="get_puzzle_time" x="501" y="216" />
+  <block id="kJ7~hICZaSld9BN.w=J8" type="get_puzzle_time" x="342" y="314" />
+</xml>
