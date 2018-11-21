@@ -251,6 +251,8 @@
     <Compile Include="Blockly\Model.cs" />
     <Compile Include="Blockly\Parser.cs" />
     <Compile Include="Blockly\Utils\SyntaxGenerator.cs" />
+    <Compile Include="Communication\IJsonParser.cs" />
+    <Compile Include="Communication\IMqtt.cs" />
     <Compile Include="Communication\JsonParser.cs" />
     <Compile Include="Communication\Mqtt.cs" />
     <Compile Include="Device\Device.cs" />
@@ -300,6 +302,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -336,7 +340,9 @@
     <Content Include="Files\BlocklyBrowserFiles\customblocks.js" />
     <Content Include="Files\BlocklyBrowserFiles\Sources\blockly_compressed.js" />
     <Content Include="Files\BlocklyBrowserFiles\Sources\blocks_compressed.js" />
-    <Resource Include="Files\GameFiles\backgroundFile.xml" />
+    <Resource Include="Files\GameFiles\backgroundFile.xml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Logo.png" />
     <Resource Include="Files\BlocklyBrowserFiles\blocklyToolbox.xml" />
   </ItemGroup>

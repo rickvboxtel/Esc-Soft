@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Blockly;
 using Blockly.Blocks;
 using System.IO;
-using System.Runtime.CompilerServices;
 using LazyCache;
 using System.ComponentModel;
 
@@ -24,7 +13,7 @@ namespace EscaperoomSoftware
     /// <summary>
     /// Interaction logic for UserControlHome.xaml
     /// </summary>
-    public partial class UserControlGame : UserControl
+    public partial class UserControlGame : UserControl, IDisposable
     {
         IAppCache Cache = new CachingService();
         Mqtt MqttClient = new Mqtt();
@@ -111,5 +100,15 @@ namespace EscaperoomSoftware
             MqttClient.Publish("/allClients/", "getInfo");
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            bgwBackgroundWorker.Dispose();
+            bgwStartWorker.Dispose();
+        }
     }
 }

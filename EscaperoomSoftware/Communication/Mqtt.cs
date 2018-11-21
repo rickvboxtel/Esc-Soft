@@ -3,16 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace EscaperoomSoftware
 {
-    public class Mqtt
+    public class Mqtt : IMqtt
     {
         public static MqttClient Client;
-        public delegate void MqttDevicesUpdate(object sender, EventArgs args);
+        public delegate void MqttDevicesUpdate(object sender, EventArgs e);
         public event MqttDevicesUpdate DevicesUpdate;
         IAppCache cache = new CachingService();
         JsonParser jsonParser = new JsonParser();

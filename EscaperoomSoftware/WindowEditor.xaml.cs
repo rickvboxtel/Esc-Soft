@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EscaperoomSoftware
 {
@@ -20,21 +8,26 @@ namespace EscaperoomSoftware
     /// </summary>
     public partial class WindowEditor : Window
     {
+
+        private static string folder = @"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\";
+        private static string gameFile = folder + @"GameFiles\gameFile.xml";
+        private static string backgroundFile = folder + @"GameFiles\backgroundFile.xml";
+        private static string blocklyFile = folder + @"BlocklyBrowserFiles\blocklyHTML.html";
+        private static string blocklyToolboxFile = folder + @"BlocklyBrowserFiles\blocklyToolbox.xml";
+
         public WindowEditor()
         {
             InitializeComponent();
             LabelState.Content = "Editor";
-            
-
         }
 
         private void Browser_GameLoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            LoadFile(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\GameFiles\gameFile.xml");
+            LoadFile(gameFile);
         }
         private void Browser_BackgroundLoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            LoadFile(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\GameFiles\backgroundFile.xml");
+            LoadFile(backgroundFile);
         }
 
         private void GameFileButton_Click(object sender, RoutedEventArgs e)
@@ -43,7 +36,7 @@ namespace EscaperoomSoftware
             GamefileButton.IsEnabled = false;
             Browser.LoadCompleted += Browser_GameLoadCompleted;
             Browser.LoadCompleted -= Browser_BackgroundLoadCompleted;
-            Browser.NavigateToString(System.IO.File.ReadAllText(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\BlocklyBrowserFiles\blocklyHTML.html"));
+            Browser.NavigateToString(System.IO.File.ReadAllText(blocklyFile));
             LabelState.Content = "Gamefile Editor";
             BackgroundfileButton.IsEnabled = true;
         }
@@ -54,7 +47,7 @@ namespace EscaperoomSoftware
             BackgroundfileButton.IsEnabled = false;
             Browser.LoadCompleted -= Browser_GameLoadCompleted;
             Browser.LoadCompleted += Browser_BackgroundLoadCompleted;
-            Browser.NavigateToString(System.IO.File.ReadAllText(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\BlocklyBrowserFiles\blocklyHTML.html"));
+            Browser.NavigateToString(System.IO.File.ReadAllText(blocklyFile));
             LabelState.Content = "Backgroundfile Editor";
             GamefileButton.IsEnabled = true;
             
@@ -67,11 +60,11 @@ namespace EscaperoomSoftware
             string result = (string)Browser.InvokeScript("showXML", new object[] { });
             if(GamefileButton.IsEnabled)
             {
-                System.IO.File.WriteAllText(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\GameFiles\backgroundFile.xml", result);
+                System.IO.File.WriteAllText(backgroundFile, result);
             }
             else if(BackgroundfileButton.IsEnabled)
             {
-                System.IO.File.WriteAllText(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\GameFiles\gameFile.xml", result);
+                System.IO.File.WriteAllText(gameFile, result);
             }
             SaveButton.IsEnabled = true;
             LabelLastSaved.Content = "Last saved: " + DateTime.Now.ToString("HH:mm:ss tt");
@@ -85,7 +78,7 @@ namespace EscaperoomSoftware
                 throw new ArgumentNullException(nameof(completeFilePath));
             }
             //ShowCodeButton.IsEnabled = true;
-            var toolboxXML = System.IO.File.ReadAllText(@"C:\Users\rick_\Dropbox\ICT\Afstuderen\SCHOOL\4. Implementatie\EscaperoomSoftware\EscaperoomSoftware\Files\BlocklyBrowserFiles\blocklyToolbox.xml");
+            var toolboxXML = System.IO.File.ReadAllText(blocklyToolboxFile);
             var workspaceXML = System.IO.File.ReadAllText(completeFilePath);
             //Initialize blocky using toolbox and workspace
             Browser.InvokeScript("init", new object[] { toolboxXML, workspaceXML });

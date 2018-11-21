@@ -22,7 +22,7 @@ namespace EscaperoomSoftware
     /// </summary>
     /// 
 
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IDisposable
     {
         IAppCache cache = new CachingService();
         Mqtt MqttClient = new Mqtt();
@@ -82,7 +82,6 @@ namespace EscaperoomSoftware
 
         public void DevicesUpdate(object sender, EventArgs e)
         {
-            Console.WriteLine("Adding in listbox!!");
             RefreshDevices();
         }
 
@@ -101,5 +100,14 @@ namespace EscaperoomSoftware
             }
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            UCgame.Dispose();
+        }
     }
 }
